@@ -1,23 +1,37 @@
-//
-// Zotero extensions
+// Zotero style.css modifications
 // --------------------------------------------------
-
-$white:         #fff;
-$gray-light:    #e6e6e6;
-$gray-lightest: #f6f6f6;
-
-$grid-gutter-width: 30px;
-$grid-gutter-compact: 20px;
-$grid-gutter-loose: 40px;
-$screen-sm-min: 768px;
 
 // Fix in style.css
 .center {
   width: 900px; // Fix width from 901px to 900px
 }
 
+// Add helper class
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
-/* Extensions styles */
+
+// Zotero extensions styles
+// --------------------------------------------------
+
+$white:         #fff;
+$gray-light:    #e6e6e6;
+$gray-lightest: #f6f6f6;
+
+$link-color: #38c;
+
+$grid-gutter-width: 30px;
+$grid-gutter-compact: 20px;
+$grid-gutter-loose: 40px;
+$screen-sm-min: 768px;
 
 .extensions {
   margin: 0 -40px;
@@ -120,38 +134,84 @@ $screen-sm-min: 768px;
     }
   }
 
-  img {
-    display: block;
-    margin: auto;
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-  }
-
   hr {
     border: 0;
     border-top: 1px solid $gray-light;
     margin: 0;
   }
 
+  .btn {
+    color: $white;
+    background: $link-color;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 5px 15px;
+
+    &:hover {
+      background: darken($link-color, 5%);
+    }
+  }
+
+  // Jumbotron
   .jumbotron {
     background: $gray-lightest; // IE9 fallback
     background: linear-gradient($white, $gray-lightest);
     padding: 80px 0;
-    margin-bottom: 69px; // 80px
 
     .line {
       @media (min-width: $screen-sm-min) {
         display: block;
       }
     }
+
+    .show-others {
+      position: absolute;
+    }
   }
 
+  // Other browsers
+  .other-browsers {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin: 3px 0 13px 0;
+    }
+
+    ul {
+      text-align: center;
+      margin: 30px 0 -30px;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        padding: 0 $grid-gutter-width;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  // Features
   .features {
     padding-bottom: 41px; // 60px
 
     img {
-      margin-top: 54px;
+      display: block;
+      margin: 54px auto 0;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
     }
   }
+
+  .features-1 {
+    h2 {
+      margin-top: 69px; // 80px
+    }
+  }
+
 }
