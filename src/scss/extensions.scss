@@ -7,6 +7,8 @@ $gray-light:    #e6e6e6;
 $gray-lightest: #f6f6f6;
 
 $grid-gutter-width: 30px;
+$grid-gutter-compact: 20px;
+$grid-gutter-loose: 40px;
 $screen-sm-min: 768px;
 
 // Fix in style.css
@@ -39,7 +41,11 @@ $screen-sm-min: 768px;
     margin: 0 (-$grid-gutter-width / 2);
 
     &.compact {
-      margin: 0 (-$grid-gutter-width / 3);
+      margin: 0 ($grid-gutter-compact / 2);
+    }
+
+    &.loose {
+      margin: 0 (-$grid-gutter-loose / 2);
     }
   }
 
@@ -65,7 +71,13 @@ $screen-sm-min: 768px;
 
   .row.compact {
     .col-4, .col-6 {
-      padding: 0 ($grid-gutter-width / 3);
+      padding: 0 ($grid-gutter-compact / 2);
+    }
+  }
+
+  .row.loose {
+    .col-4, .col-6 {
+      padding: 0 ($grid-gutter-loose / 2);
     }
   }
 
@@ -112,6 +124,7 @@ $screen-sm-min: 768px;
     display: block;
     margin: auto;
     max-width: 100%;
+    width: 100%;
     height: auto;
   }
 
