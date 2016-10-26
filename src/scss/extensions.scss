@@ -31,10 +31,24 @@ $link-color: #38c;
 $grid-gutter-width: 30px;
 $grid-gutter-compact: 20px;
 $grid-gutter-loose: 40px;
+$screen-xs-max: 767px;
 $screen-sm-min: 768px;
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 .extensions {
   margin: 0 -40px;
+  animation: slide-in 0.8s ease;
 
   * {
     box-sizing: border-box;
@@ -107,20 +121,34 @@ $screen-sm-min: 768px;
   }
 
   h1 {
-    font-size: 36px;
-    letter-spacing: -1px;
-    margin: auto;
+    font-size: 24px;
+    margin: 27px auto 34px; // 48px 40px
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 36px;
+      letter-spacing: -1px;
+    }
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 20px;
     color: inherit;
-    margin: 48px 0 16px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 30px;
+      margin: 48px 0 16px;
+      letter-spacing: -0.5px;
+    }
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 16px;
     margin: 31px 0 14px;
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 24px;
+      letter-spacing: -0.3px;
+    }
   }
 
   .lead {
@@ -155,8 +183,10 @@ $screen-sm-min: 768px;
   // Jumbotron
   .jumbotron {
     background: $gray-lightest; // IE9 fallback
-    background: linear-gradient($white, $gray-lightest);
-    padding: 80px 0;
+    background: linear-gradient(transparent, $gray-lightest);
+    padding: 36px 0 80px;
+    text-align: center;
+    position: relative;
 
     .line {
       @media (min-width: $screen-sm-min) {
@@ -164,8 +194,82 @@ $screen-sm-min: 768px;
       }
     }
 
+    .btn {
+      font-size: 20px;
+      min-width: 160px;
+      padding: 9px 23px;
+      border-radius: 4px;
+    }
+
+    .show-others,
+    .get-zotero-standalone {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 16px 0 0;
+
+      @media (min-width: $screen-sm-min) {
+        position: absolute;
+      }
+
+    }
+
     .show-others {
-      position: absolute;
+      @media (min-width: $screen-sm-min) {
+        left: 40px;
+        bottom: 18px;
+        text-align: left;
+      }
+
+      img {
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    .get-zotero-standalone {
+      margin-top: 32px;
+
+      @media (min-width: $screen-sm-min) {
+        right: 40px;
+        bottom: 18px;
+        text-align: right;
+        width: 250px;
+      }
+    }
+  }
+
+  .browser-plus-extension {
+    margin: 0;
+
+    img {
+      vertical-align: middle;
+    }
+
+    .icon-plus {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      background: url("../images/icon-plus.svg") no-repeat 0 0;
+      vertical-align: middle;
+      margin: 0 3px 0 16px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      .browser-icon {
+        width: 64px;
+        height: 64px;
+      }
+
+      .icon-plus {
+        width: 24px;
+        height: 24px;
+        margin-left: 8px;
+      }
+
+      .zotero-icon {
+        width: 72px;
+        height: 72px;
+      }
     }
   }
 
@@ -213,5 +317,4 @@ $screen-sm-min: 768px;
       margin-top: 69px; // 80px
     }
   }
-
 }

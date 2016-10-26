@@ -5,7 +5,7 @@ $(function() {
 
   link.click(function(e) {
     e.preventDefault();
-    this.remove();
-    otherBrowsers.slideDown();
+    showOthers.fadeOut();
+    otherBrowsers.delay(400).slideDown(300);
   });
 });
