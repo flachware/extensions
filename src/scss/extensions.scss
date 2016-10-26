@@ -3,7 +3,8 @@
 // --------------------------------------------------
 
 $white:         #fff;
-$gray-lightest: #fafafa;
+$gray-light:    #e6e6e6;
+$gray-lightest: #f6f6f6;
 
 $grid-gutter-width: 30px;
 $screen-sm-min: 768px;
@@ -36,6 +37,10 @@ $screen-sm-min: 768px;
 
   .row {
     margin: 0 (-$grid-gutter-width / 2);
+
+    &.compact {
+      margin: 0 (-$grid-gutter-width / 3);
+    }
   }
 
   .col-4, .col-6 {
@@ -58,38 +63,82 @@ $screen-sm-min: 768px;
     }
   }
 
+  .row.compact {
+    .col-4, .col-6 {
+      padding: 0 ($grid-gutter-width / 3);
+    }
+  }
+
 
   // Extensions styles
 
-  h1, h2 {
+  h1, h2, h3 {
     line-height: 1.1;
+  }
+
+  h1, h2 {
     text-align: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+    margin: auto;
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 30px;
+    color: inherit;
+    margin: 48px 0 16px;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin: 31px 0 14px;
   }
 
   .lead {
+    font-size: 16px;
+    line-height: 1.5;
     text-align: center;
+    margin: 0 auto;
+
+    @media (min-width: $screen-sm-min) {
+      width: 80%;
+    }
   }
 
   img {
     display: block;
     margin: auto;
     max-width: 100%;
+    height: auto;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid $gray-light;
+    margin: 0;
   }
 
   .jumbotron {
     background: $gray-lightest; // IE9 fallback
     background: linear-gradient($white, $gray-lightest);
     padding: 80px 0;
+    margin-bottom: 69px; // 80px
 
-    h1 {
-      font-size: 36px;
-      letter-spacing: -1px;
-      width: 80%;
-      margin: auto;
+    .line {
+      @media (min-width: $screen-sm-min) {
+        display: block;
+      }
+    }
+  }
+
+  .features {
+    padding-bottom: 41px; // 60px
+
+    img {
+      margin-top: 54px;
     }
   }
 }
