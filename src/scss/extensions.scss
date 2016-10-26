@@ -41,7 +41,7 @@ $screen-sm-min: 768px;
     margin: 0 (-$grid-gutter-width / 2);
 
     &.compact {
-      margin: 0 ($grid-gutter-compact / 2);
+      margin: 0 (-$grid-gutter-compact / 2);
     }
 
     &.loose {
